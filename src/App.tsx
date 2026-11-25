@@ -5,7 +5,9 @@ import { useI18n } from "./i18n";
 import { AboutPage } from "./pages/AboutPage";
 import { DocsPage } from "./pages/DocsPage";
 import { HomePage } from "./pages/HomePage";
+import { MarketPage } from "./pages/MarketPage";
 import { ReleasePage } from "./pages/ReleasePage";
+import { SkillsPage } from "./pages/SkillsPage";
 
 const GITHUB_URL = "https://github.com/smartartian/prime-work";
 /** GitHub Pages 部署在 /prime-work/ 下，basename 跟随构建时的 base */
@@ -68,6 +70,12 @@ function Header() {
           <NavLink to="/" end className={linkClass}>
             {dict.nav.home}
           </NavLink>
+          <NavLink to="/market" className={linkClass}>
+            {dict.nav.market}
+          </NavLink>
+          <NavLink to="/skills" className={linkClass}>
+            {dict.nav.skills}
+          </NavLink>
           <NavLink to="/release" className={linkClass}>
             {dict.nav.release}
           </NavLink>
@@ -120,6 +128,12 @@ function Header() {
           <NavLink to="/" end className={linkClass} onClick={() => setMenuOpen(false)}>
             {dict.nav.home}
           </NavLink>
+          <NavLink to="/market" className={linkClass} onClick={() => setMenuOpen(false)}>
+            {dict.nav.market}
+          </NavLink>
+          <NavLink to="/skills" className={linkClass} onClick={() => setMenuOpen(false)}>
+            {dict.nav.skills}
+          </NavLink>
           <NavLink to="/release" className={linkClass} onClick={() => setMenuOpen(false)}>
             {dict.nav.release}
           </NavLink>
@@ -146,6 +160,8 @@ function AppShell() {
       <main className={isDocs ? "is-docs" : undefined}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/market" element={<MarketPage />} />
+          <Route path="/skills" element={<SkillsPage />} />
           <Route path="/release" element={<ReleasePage />} />
           <Route path="/docs" element={<DocsPage />} />
           <Route path="/docs/:slug" element={<DocsPage />} />

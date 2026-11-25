@@ -3,6 +3,8 @@ import type { Dictionary } from "./zh";
 export const en: Dictionary = {
   nav: {
     home: "Home",
+    market: "Market",
+    skills: "Skills",
     release: "Release",
     docs: "Docs",
     about: "About",
@@ -78,6 +80,105 @@ export const en: Dictionary = {
     notesTitle: "Previous versions",
     showAll: "Show all versions",
     collapse: "Collapse",
+  },
+  market: {
+    label: "Plugin Market",
+    eyebrow: "Plugin ecosystem",
+    title: "Plugin Market",
+    desc: "Prime Work's daily capabilities are built from plugins. Browse built-in and published plugins here, and check permissions before installing.",
+    searchPlaceholder: "Search name, description or permission…",
+    searchClear: "Clear search",
+    countPrefix: "Total",
+    countUnit: "plugins",
+    categories: {
+      label: "Categories",
+      all: "All",
+      terminal: "Terminal",
+      nav: "Navigation",
+      ai: "AI",
+    },
+    sources: {
+      all: "All",
+      builtin: "Built-in",
+      official: "Official",
+    },
+    minAppPrefix: "Requires client",
+    latest: "Latest",
+    docsAction: "Details",
+    emptyTitle: "No matching plugins",
+    emptyDesc: "Try another keyword, or clear the filters.",
+    reset: "Clear filters",
+    aboutTitle: "About the plugin market",
+    about: [
+      {
+        term: "Built-in plugins",
+        desc: "Ship with the client and need no install, such as the AI assistant.",
+      },
+      {
+        term: "Official plugins",
+        desc: "Maintained by the team and published in the market. Install, update or remove them, such as SSH Terminal, Site Navigation and Page Menu.",
+      },
+      {
+        term: "External plugins",
+        desc: "Zip packages installed from the market or imported offline. They run in a sandbox and cannot declare desktop permissions.",
+      },
+    ],
+    aboutNote:
+      "Permissions on each card come from the plugin manifest. Versions and client requirements follow the in-app plugin market.",
+    tipTitle: "Want to publish your own plugin?",
+    tipDesc:
+      "A plugin is a zip package that talks to the host through window.pwb. The guide covers the manifest, SDK and local debugging. You can also publish from Settings → Plugin Market → Upload plugin package.",
+    tipPrimary: "Plugin development",
+    tipSecondary: "Manifest reference",
+  },
+  skills: {
+    label: "Skill Market",
+    eyebrow: "Skill ecosystem",
+    title: "Skill Market",
+    desc: "Skills are reusable instruction sets for the AI assistant. Built-in skills work out of the box, and you can import SKILL.md files from a URL.",
+    searchPlaceholder: "Search name, description or tag…",
+    searchClear: "Clear search",
+    countPrefix: "Total",
+    countUnit: "skills",
+    categories: {
+      label: "Categories",
+      all: "All",
+      writing: "Writing",
+      data: "Data",
+      collab: "Collaboration",
+      dev: "Development",
+    },
+    sources: {
+      all: "All",
+      builtin: "Built-in",
+      imported: "Imported",
+    },
+    docsAction: "Details",
+    emptyTitle: "No matching skills",
+    emptyDesc: "Try another keyword, or clear the filters.",
+    reset: "Clear filters",
+    aboutTitle: "About the skill market",
+    about: [
+      {
+        term: "Built-in skills",
+        desc: "Ship with the client. Enable or remove them in Settings → Skill Configuration, such as Code Review, Document Summary, Meeting Notes and Data Snapshot.",
+      },
+      {
+        term: "Imported skills",
+        desc: "Import a SKILL.md from a URL; it is stored locally and can be invoked like a built-in skill.",
+      },
+      {
+        term: "How to invoke",
+        desc: "Type / in the AI assistant to pick a skill, or let the model choose one for the task.",
+      },
+    ],
+    aboutNote:
+      "Descriptions, usage steps and versions follow Settings → Skill Configuration in the desktop client.",
+    tipTitle: "Want to write a skill?",
+    tipDesc:
+      "A skill lives in a folder: manifest.ts holds the metadata and prompt.md holds the instructions. Imported SKILL.md files are shown on the skill detail page.",
+    tipPrimary: "AI assistant docs",
+    tipSecondary: "GitHub",
   },
   docs: {
     label: "Docs",

@@ -110,6 +110,8 @@ export function Docs({ doc }: { doc: DocEntry }) {
 
           <nav className="docs-topnav" aria-label={docs.label}>
             <Link to="/">{dict.nav.home}</Link>
+            <Link to="/market">{dict.nav.market}</Link>
+            <Link to="/skills">{dict.nav.skills}</Link>
             <Link to="/release">{dict.nav.release}</Link>
             <Link to="/about">{dict.nav.about}</Link>
           </nav>

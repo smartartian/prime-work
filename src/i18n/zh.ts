@@ -1,6 +1,8 @@
 export interface Dictionary {
   nav: {
     home: string;
+    market: string;
+    skills: string;
     release: string;
     docs: string;
     about: string;
@@ -43,6 +45,75 @@ export interface Dictionary {
     showAll: string;
     collapse: string;
   };
+  market: {
+    label: string;
+    eyebrow: string;
+    title: string;
+    desc: string;
+    searchPlaceholder: string;
+    searchClear: string;
+    countPrefix: string;
+    countUnit: string;
+    categories: {
+      label: string;
+      all: string;
+      terminal: string;
+      nav: string;
+      ai: string;
+    };
+    sources: {
+      all: string;
+      builtin: string;
+      official: string;
+    };
+    minAppPrefix: string;
+    latest: string;
+    docsAction: string;
+    emptyTitle: string;
+    emptyDesc: string;
+    reset: string;
+    aboutTitle: string;
+    about: Array<{ term: string; desc: string }>;
+    aboutNote: string;
+    tipTitle: string;
+    tipDesc: string;
+    tipPrimary: string;
+    tipSecondary: string;
+  };
+  skills: {
+    label: string;
+    eyebrow: string;
+    title: string;
+    desc: string;
+    searchPlaceholder: string;
+    searchClear: string;
+    countPrefix: string;
+    countUnit: string;
+    categories: {
+      label: string;
+      all: string;
+      writing: string;
+      data: string;
+      collab: string;
+      dev: string;
+    };
+    sources: {
+      all: string;
+      builtin: string;
+      imported: string;
+    };
+    docsAction: string;
+    emptyTitle: string;
+    emptyDesc: string;
+    reset: string;
+    aboutTitle: string;
+    about: Array<{ term: string; desc: string }>;
+    aboutNote: string;
+    tipTitle: string;
+    tipDesc: string;
+    tipPrimary: string;
+    tipSecondary: string;
+  };
   docs: {
     label: string;
     tocTitle: string;
@@ -70,6 +141,8 @@ export interface Dictionary {
 export const zh: Dictionary = {
   nav: {
     home: "首页",
+    market: "插件市场",
+    skills: "技能市场",
     release: "版本",
     docs: "文档",
     about: "关于",
@@ -145,6 +218,104 @@ export const zh: Dictionary = {
     notesTitle: "历史版本",
     showAll: "查看全部版本",
     collapse: "收起",
+  },
+  market: {
+    label: "插件市场",
+    eyebrow: "插件生态全景",
+    title: "插件市场",
+    desc: "Prime Work 的日常能力由插件组合而成。这里平铺展示内置与已上架的插件，安装前看清权限。",
+    searchPlaceholder: "搜索插件名称、介绍或权限…",
+    searchClear: "清除搜索",
+    countPrefix: "共",
+    countUnit: "个插件",
+    categories: {
+      label: "插件分类",
+      all: "全部",
+      terminal: "终端",
+      nav: "导航",
+      ai: "AI",
+    },
+    sources: {
+      all: "全部",
+      builtin: "内置",
+      official: "官方",
+    },
+    minAppPrefix: "需客户端",
+    latest: "最新版",
+    docsAction: "查看详情",
+    emptyTitle: "没有匹配的插件",
+    emptyDesc: "试试换个关键词，或清除筛选条件。",
+    reset: "清除筛选",
+    aboutTitle: "关于插件市场",
+    about: [
+      {
+        term: "内置插件",
+        desc: "随客户端发布，无需安装，例如 AI 助手。",
+      },
+      {
+        term: "官方插件",
+        desc: "由官方维护并在插件市场上架，可安装、更新与卸载，例如 SSH 终端、站点导航与页面菜单。",
+      },
+      {
+        term: "外部插件",
+        desc: "从市场安装或离线导入的 zip 包，运行在沙箱中，不能声明 desktop 权限。",
+      },
+    ],
+    aboutNote:
+      "卡片上的权限来自插件清单，安装前请确认；版本与客户端要求以客户端内的插件市场为准。",
+    tipTitle: "想发布自己的插件？",
+    tipDesc:
+      "插件是一个 zip 包，通过 window.pwb 与宿主通信。开发指南覆盖清单、SDK 与本地调试；也可以在客户端「设置 → 插件市场 → 上传插件包」发布。",
+    tipPrimary: "插件开发",
+    tipSecondary: "清单参考",
+  },
+  skills: {
+    label: "技能市场",
+    eyebrow: "技能生态全景",
+    title: "技能市场",
+    desc: "技能是 AI 助手的可复用指令集。内置技能开箱即用，也可以从网址导入 SKILL.md 扩展。",
+    searchPlaceholder: "搜索技能名称、介绍或标签…",
+    searchClear: "清除搜索",
+    countPrefix: "共",
+    countUnit: "个技能",
+    categories: {
+      label: "技能分类",
+      all: "全部",
+      writing: "文档",
+      data: "数据",
+      collab: "协作",
+      dev: "开发",
+    },
+    sources: {
+      all: "全部",
+      builtin: "内置",
+      imported: "已导入",
+    },
+    docsAction: "查看说明",
+    emptyTitle: "没有匹配的技能",
+    emptyDesc: "试试换个关键词，或清除筛选条件。",
+    reset: "清除筛选",
+    aboutTitle: "关于技能市场",
+    about: [
+      {
+        term: "内置技能",
+        desc: "随客户端发布，在「设置 → 技能配置」中启用或卸载，例如代码审查、文档摘要、会议纪要与数据快照。",
+      },
+      {
+        term: "导入技能",
+        desc: "从网址导入 SKILL.md，保存在本机，可像内置技能一样在对话中调用。",
+      },
+      {
+        term: "调用方式",
+        desc: "在 AI 助手输入「/」选择技能，或由模型根据任务自动判断。",
+      },
+    ],
+    aboutNote: "技能说明、使用步骤与版本以客户端「设置 → 技能配置」为准。",
+    tipTitle: "想写一个技能？",
+    tipDesc:
+      "技能以文件夹维护：manifest.ts 保存元数据，prompt.md 保存指令与规则；导入的 SKILL.md 会直接展示在技能详情页。",
+    tipPrimary: "AI 助手文档",
+    tipSecondary: "GitHub",
   },
   docs: {
     label: "文档",

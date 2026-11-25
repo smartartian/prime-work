@@ -1,14 +1,11 @@
+import { Navigate, useParams } from "react-router-dom";
 import { Docs } from "../components/Docs";
-import { useI18n } from "../i18n";
-import { PageHeader } from "./PageHeader";
+import { getDoc } from "../data/docs";
 
 export function DocsPage() {
-  const { dict } = useI18n();
+  const { slug } = useParams<{ slug?: string }>();
+  const doc = getDoc(slug);
 
-  return (
-    <>
-      <PageHeader label={dict.docs.label} title={dict.docs.title} desc={dict.docs.desc} />
-      <Docs />
-    </>
-  );
+  if (!doc) return <Navigate to="/docs" replace />;
+  return <Docs doc={doc} />;
 }

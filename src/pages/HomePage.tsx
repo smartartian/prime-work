@@ -5,6 +5,8 @@ import { Reveal } from "../components/Reveal";
 import { Workflow } from "../components/Workflow";
 import { useI18n } from "../i18n";
 
+const GITHUB_URL = "https://github.com/smartartian/prime-work";
+
 export function HomePage() {
   const { dict } = useI18n();
 
@@ -25,6 +27,9 @@ export function HomePage() {
               <Link className="button-ghost" to="/docs">
                 {dict.homeCta.secondary}
               </Link>
+              <a className="button-ghost" href={GITHUB_URL} target="_blank" rel="noreferrer">
+                GitHub
+              </a>
             </div>
           </Reveal>
         </div>

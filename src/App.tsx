@@ -24,6 +24,8 @@ function ScrollToTop() {
 function Header() {
   const { lang, dict, setLang } = useI18n();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -32,16 +34,34 @@ function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const linkClass = ({ isActive }: { isActive: boolean }) => (isActive ? "is-active" : "");
 
   return (
-    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+    <header
+      className={`site-header${scrolled ? " is-scrolled" : ""}${menuOpen ? " is-menu-open" : ""}`}
+    >
       <div className="site-header-inner">
         <Link className="brand" to="/" aria-label="Prime Work">
-          <span className="brand-mark" aria-hidden="true">
-            P
-          </span>
+          <img
+            className="brand-mark"
+            src={`${import.meta.env.BASE_URL}assets/logo-icon.svg`}
+            alt=""
+            width={28}
+            height={28}
+          />
           <span className="brand-name">Prime Work</span>
+          <span className="brand-badge">{dict.nav.badge}</span>
         </Link>
 
         <nav className="site-nav" aria-label="Sections">
@@ -81,27 +101,67 @@ function Header() {
           <a className="ghost-link" href={GITHUB_URL} target="_blank" rel="noreferrer">
             GitHub
           </a>
+          <button
+            type="button"
+            className={`nav-toggle${menuOpen ? " is-open" : ""}`}
+            aria-label="Menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+          </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <nav className="mobile-nav" id="mobile-nav" aria-label="Sections">
+          <NavLink to="/" end className={linkClass} onClick={() => setMenuOpen(false)}>
+            {dict.nav.home}
+          </NavLink>
+          <NavLink to="/release" className={linkClass} onClick={() => setMenuOpen(false)}>
+            {dict.nav.release}
+          </NavLink>
+          <NavLink to="/docs" className={linkClass} onClick={() => setMenuOpen(false)}>
+            {dict.nav.docs}
+          </NavLink>
+          <NavLink to="/about" className={linkClass} onClick={() => setMenuOpen(false)}>
+            {dict.nav.about}
+          </NavLink>
+        </nav>
+      )}
     </header>
+  );
+}
+
+function AppShell() {
+  const { pathname } = useLocation();
+  const isDocs = pathname === "/docs" || pathname.startsWith("/docs/");
+
+  return (
+    <>
+      <ScrollToTop />
+      {!isDocs && <Header />}
+      <main className={isDocs ? "is-docs" : undefined}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/release" element={<ReleasePage />} />
+          <Route path="/docs" element={<DocsPage />} />
+          <Route path="/docs/:slug" element={<DocsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </main>
+      {!isDocs && <Footer />}
+    </>
   );
 }
 
 export function App() {
   return (
     <BrowserRouter basename={BASENAME}>
-      <ScrollToTop />
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/release" element={<ReleasePage />} />
-          <Route path="/docs" element={<DocsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="*" element={<HomePage />} />
-        </Routes>
-      </main>
-      <Footer />
+      <AppShell />
     </BrowserRouter>
   );
 }

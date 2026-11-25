@@ -20,7 +20,13 @@ export function AppPreview() {
         <div className="preview-body">
           <aside className="preview-side">
             <div className="preview-side-brand">
-              <span className="preview-logo">P</span>
+              <img
+                className="preview-logo"
+                src={`${import.meta.env.BASE_URL}assets/logo-icon.svg`}
+                alt=""
+                width={20}
+                height={20}
+              />
               <span className="preview-side-name">Prime Work</span>
             </div>
             <div className="preview-side-group">工作台</div>

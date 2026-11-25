@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # 每天 03:00 UTC（北京时间 11:00）同步一次后端更新日志
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -24,6 +27,8 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - run: npm run sync:changelog
+        continue-on-error: true
       - run: npx tsc --noEmit
       - run: npx vite build --base=/prime-work/
       - uses: actions/upload-pages-artifact@v3

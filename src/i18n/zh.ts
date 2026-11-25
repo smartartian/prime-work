@@ -4,9 +4,9 @@ export interface Dictionary {
     release: string;
     docs: string;
     about: string;
+    badge: string;
   };
   hero: {
-    eyebrow: string;
     title: string;
     desc: string;
     primary: string;
@@ -35,24 +35,20 @@ export interface Dictionary {
     title: string;
     desc: string;
     versionLabel: string;
-    version: string;
     platformLabel: string;
     platform: string;
     statusLabel: string;
     status: string;
     notesTitle: string;
-    notes: Array<{ version: string; date: string; items: string[] }>;
+    showAll: string;
+    collapse: string;
   };
   docs: {
     label: string;
-    title: string;
-    desc: string;
-    quickTitle: string;
-    quickSteps: Array<{ title: string; desc: string }>;
-    pluginTitle: string;
-    pluginDesc: string;
-    faqTitle: string;
-    faq: Array<{ q: string; a: string }>;
+    tocTitle: string;
+    viewSource: string;
+    prevLabel: string;
+    nextLabel: string;
   };
   about: {
     label: string;
@@ -77,9 +73,9 @@ export const zh: Dictionary = {
     release: "版本",
     docs: "文档",
     about: "关于",
+    badge: "测试版",
   },
   hero: {
-    eyebrow: "macOS 桌面工作台",
     title: "把终端、AI 与日常工具收进一个工作台",
     desc: "插件化扩展、原生 SSH 终端、AI 助手与站点导航在同一处完成。少切几次窗口，多留一点注意力给真正的事。",
     primary: "查看能力",
@@ -142,86 +138,20 @@ export const zh: Dictionary = {
     title: "更新记录",
     desc: "当前提供 macOS（Apple Silicon）版本，下载通道即将开放。",
     versionLabel: "最新版本",
-    version: "0.0.7",
     platformLabel: "平台",
     platform: "macOS · Apple Silicon",
     statusLabel: "下载状态",
     status: "即将开放",
     notesTitle: "历史版本",
-    notes: [
-      {
-        version: "0.0.7",
-        date: "2026-11-10",
-        items: [
-          "插件接入架构：清单、注册表、路由与导航自动派生",
-          "插件中心：权限确认、启停联动清理、异常状态",
-          "页面菜单与站点导航：收藏、折叠、拖拽排序、导入导出",
-          "SSH：共享主机表单、最近连接排序、会话日志目录",
-          "AI 助手：面板宽度记忆、会话管理、技能调用记录",
-        ],
-      },
-      {
-        version: "0.0.6",
-        date: "",
-        items: [
-          "SSH 会话日志：录制与回看",
-          "SFTP 文件管理：上传、下载与目录浏览",
-          "SSH 端口转发：配置持久化，随会话启用",
-          "浏览器面板：多标签与书签",
-        ],
-      },
-      {
-        version: "0.0.5",
-        date: "",
-        items: [
-          "菜单、分类、插件状态与站点导航接入云同步",
-          "AI 会话历史与流式输出",
-          "技能接入对话，模型配置支持连通性测试",
-        ],
-      },
-    ],
+    showAll: "查看全部版本",
+    collapse: "收起",
   },
   docs: {
     label: "文档",
-    title: "上手与扩展",
-    desc: "从安装到插件开发，按步骤走一遍。",
-    quickTitle: "快速上手",
-    quickSteps: [
-      {
-        title: "安装",
-        desc: "把应用拖入「应用程序」。首次打开若被系统拦截，在隐私与安全性中允许。",
-      },
-      {
-        title: "登录",
-        desc: "点击右上角头像完成登录，之后菜单与主机配置会随账号同步。",
-      },
-      {
-        title: "连接主机",
-        desc: "在 SSH 终端新增主机，填写地址与凭据，先做一次连通性测试。",
-      },
-      {
-        title: "启用插件",
-        desc: "在设置 → 插件中按需开启；首次启用会列出该插件申请的权限。",
-      },
-    ],
-    pluginTitle: "插件开发",
-    pluginDesc:
-      "0.0.8 计划支持外部插件包：以 .codex-plugin/plugin.json 描述清单与配置，页面与面板运行在沙箱 iframe 中，通过 window.pwb 调用宿主能力。权限未声明即拒绝。",
-    faqTitle: "常见问题",
-    faq: [
-      {
-        q: "数据存在哪里？",
-        a: "桌面端保存在本机应用数据目录；登录后菜单、插件状态与主机列表同步到云端，凭据使用加密存储，接口不返回明文。",
-      },
-      {
-        q: "浏览器里能用吗？",
-        a: "可以预览界面，但 SSH 终端、文件管理与命令执行需要桌面客户端。",
-      },
-      {
-        q: "支持 Windows 吗？",
-        a: "目前提供 macOS（Apple Silicon）版本，Windows 在规划中。",
-      },
-    ],
+    tocTitle: "本页目录",
+    viewSource: "在 GitHub 上查看源码",
+    prevLabel: "上一篇",
+    nextLabel: "下一篇",
   },
   about: {
     label: "关于",

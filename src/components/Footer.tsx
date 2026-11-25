@@ -9,9 +9,13 @@ export function Footer() {
     <footer className="site-footer">
       <div className="site-footer-inner">
         <div className="footer-brand">
-          <span className="brand-mark" aria-hidden="true">
-            P
-          </span>
+          <img
+            className="brand-mark"
+            src={`${import.meta.env.BASE_URL}assets/logo-icon.svg`}
+            alt=""
+            width={22}
+            height={22}
+          />
           <span>Prime Work</span>
         </div>
         <p className="footer-tagline">{dict.footer.tagline}</p>

@@ -24,13 +24,13 @@ See [SSH terminal](/docs/ssh) for details.
 
 Open **Settings → Plugin Center** and enable what you need. The first enable lists the requested permissions. Disabling hides the entry and disconnects related capabilities; uninstalling cleans the plugin directory.
 
-External plugins can be imported from a development folder or a `.zip` package. Plugins run in a sandboxed iframe, and undeclared permissions are denied.
+External plugins can be imported from a development folder, the local debug service, or a `.zip` package. The host mounts them directly with an optional Shadow DOM sandbox, and undeclared permissions are denied. Plugins that declare navigation menus create their entries automatically.
 
 ## Try the AI assistant
 
 Open the **AI assistant** on the right:
 
-1. Configure a model in Settings → Models and test connectivity.
+1. Configure a model in Settings → Model Configuration and test connectivity.
 2. Ask in Chat mode, or switch to Agent mode for multi-step tasks.
 3. Agent asks for confirmation before running terminal commands.
 

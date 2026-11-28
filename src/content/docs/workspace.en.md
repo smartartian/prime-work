@@ -12,20 +12,21 @@ The main window has a left navigation, a page container and an AI panel on the r
 ## Page container
 
 - AI and external plugin pages share the same border, radius and shadow
-- External plugins run in a sandboxed iframe / Shadow DOM
+- External plugins are loaded by the host from `main.js`; Shadow DOM sandboxing isolates their styles
 - Embedded pages depend on the plugin; the market Page Menu opens links in the system browser
 
 ## Plugin Center
 
 Open **Settings → Plugin Center** to:
 
-- Enable or disable plugins
-- Review and approve requested permissions
-- Import a development folder or `.zip` package
-- Uninstall a plugin and clean its directory
-- See plugin error states
+- Browse plugins by type: development first, then global / feature / panel / tool groups
+- Enable or disable plugins; core plugins are read-only and cannot be disabled or removed
+- Review source (core / built-in / external), domain tag, permissions and client requirements
+- Import a `.zip` package, a local development folder, or source from the local debug service
+- Configure menus for older packages that do not declare them
+- Uninstall a plugin; private data stays locally by default and can be cleared in Settings → Privacy & Data → Local data
 
-Disabling a plugin hides its entry and disconnects related capabilities; data is kept by default.
+Disabling a plugin hides its entry and disconnects related capabilities; data is kept by default. Plugins that declare navigation menus create their entries automatically, and menus with `section: settings` appear under Settings → Plugin Settings.
 
 ## Settings
 
@@ -33,8 +34,8 @@ The settings center includes:
 
 - Account, version and updates
 - Plugin Center and Plugin Market
+- Plugin Settings: pages registered by plugin manifests, such as SSH Host Config
 - Model configuration and connectivity tests
-- SSH hosts and terminal preferences
 - Appearance, hardware acceleration and about
 
 ## Search

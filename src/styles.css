@@ -1915,19 +1915,19 @@ ol {
   font-weight: 700;
 }
 
-.catalog-badge.is-builtin {
+.catalog-badge.is-core {
   color: #04121a;
   background: var(--accent);
   border: 1px solid var(--accent);
 }
 
-.catalog-badge.is-official {
+.catalog-badge.is-builtin {
   color: var(--accent);
   background: transparent;
   border: 1px solid var(--accent-line);
 }
 
-.catalog-badge.is-imported {
+.catalog-badge.is-external {
   color: var(--text-muted);
   background: transparent;
   border: 1px solid var(--line-strong);
@@ -2840,6 +2840,220 @@ ol {
 
 section[id] {
   scroll-margin-top: 84px;
+}
+
+/* ---------- light pages（插件市场 / 技能市场 / 版本 / 关于） ---------- */
+
+body.theme-light {
+  color-scheme: light;
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #f6f6f7;
+  --surface: #f6f6f7;
+  --surface-hover: #efeff1;
+  --line: rgba(60, 60, 67, 0.12);
+  --line-strong: rgba(60, 60, 67, 0.22);
+  --text: #1c1c1f;
+  --text-muted: #5c5c66;
+  --text-dim: #8e8e93;
+  --accent: #01a9f3;
+  --accent-strong: #0193d6;
+  --accent-soft: rgba(1, 169, 243, 0.1);
+  --accent-line: rgba(1, 169, 243, 0.38);
+  --accent-text: #006f99;
+  --green: #1f8f4e;
+  --green-soft: rgba(31, 143, 78, 0.1);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 18px 44px -28px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 36px 100px -32px rgba(0, 0, 0, 0.2);
+  background: var(--bg);
+}
+
+/* 页头 / 导航 / 页脚跟随浅色 */
+
+body.theme-light .site-header {
+  --header-bg: rgba(255, 255, 255, 0.74);
+  --header-line: rgba(60, 60, 67, 0.12);
+}
+
+body.theme-light .site-header.is-menu-open {
+  --header-bg: rgba(255, 255, 255, 0.92);
+}
+
+body.theme-light .brand-name {
+  color: #1c1c1f;
+}
+
+body.theme-light .brand-badge {
+  color: #3c3c43;
+  background:
+    linear-gradient(#f6f6f7, #f6f6f7) padding-box,
+    linear-gradient(
+        135deg,
+        rgba(60, 60, 67, 0.55) 0%,
+        rgba(60, 60, 67, 0.08) 35%,
+        rgba(60, 60, 67, 0.04) 65%,
+        rgba(60, 60, 67, 0.4) 100%
+      )
+      border-box;
+  box-shadow: none;
+}
+
+body.theme-light .site-nav a:hover {
+  background: rgba(60, 60, 67, 0.06);
+}
+
+body.theme-light .site-nav a.is-active {
+  background: rgba(60, 60, 67, 0.08);
+}
+
+body.theme-light .lang-switch {
+  border-color: rgba(60, 60, 67, 0.15);
+}
+
+body.theme-light .lang-switch button {
+  color: rgba(60, 60, 67, 0.55);
+}
+
+body.theme-light .lang-switch button.is-active {
+  color: #1c1c1f;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-light .ghost-link {
+  background: rgba(60, 60, 67, 0.04);
+  border-color: rgba(60, 60, 67, 0.18);
+}
+
+body.theme-light .ghost-link::after {
+  background: rgba(60, 60, 67, 0.08);
+}
+
+body.theme-light .ghost-link:hover {
+  border-color: rgba(60, 60, 67, 0.45);
+}
+
+body.theme-light .nav-toggle {
+  background: rgba(60, 60, 67, 0.04);
+  border-color: rgba(60, 60, 67, 0.18);
+}
+
+body.theme-light .mobile-nav {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+body.theme-light .mobile-nav a {
+  border-bottom-color: rgba(60, 60, 67, 0.1);
+}
+
+body.theme-light .site-footer {
+  background: var(--bg);
+}
+
+body.theme-light .footer-brand {
+  color: rgba(60, 60, 67, 0.85);
+}
+
+/* 页头光晕与标题 */
+
+body.theme-light .page-header,
+body.theme-light .catalog-hero {
+  background:
+    radial-gradient(ellipse 55% 80% at 50% 0%, rgba(1, 169, 243, 0.12), transparent 70%),
+    var(--bg);
+}
+
+body.theme-light .eyebrow {
+  color: #4b4b55;
+  background: rgba(60, 60, 67, 0.04);
+}
+
+body.theme-light .page-title,
+body.theme-light .catalog-title,
+body.theme-light .release-version,
+body.theme-light .release-item-head strong,
+body.theme-light .docs-subtitle {
+  color: var(--text);
+}
+
+/* 目录页 */
+
+body.theme-light .catalog-search {
+  background: #fff;
+}
+
+body.theme-light .catalog-kbd {
+  background: rgba(60, 60, 67, 0.05);
+}
+
+body.theme-light .catalog-search-clear {
+  background: rgba(60, 60, 67, 0.06);
+}
+
+body.theme-light .catalog-side-item:hover {
+  background: rgba(60, 60, 67, 0.05);
+}
+
+body.theme-light .catalog-chip:not(.is-active) {
+  background: #fff;
+}
+
+body.theme-light .catalog-chip.is-active {
+  color: #04121a;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+body.theme-light .catalog-chip.is-active .catalog-chip-count {
+  opacity: 1;
+}
+
+body.theme-light .catalog-card {
+  background:
+    linear-gradient(180deg, rgba(1, 169, 243, 0.05), rgba(255, 255, 255, 0)),
+    #fff;
+}
+
+body.theme-light .catalog-cat {
+  background: rgba(60, 60, 67, 0.05);
+}
+
+body.theme-light .catalog-side-item.is-active,
+body.theme-light .catalog-side-item.is-active .catalog-side-count,
+body.theme-light .catalog-badge.is-builtin,
+body.theme-light .catalog-more,
+body.theme-light .catalog-empty button,
+body.theme-light .text-link,
+body.theme-light .release-status,
+body.theme-light .footer-meta a:hover {
+  color: var(--accent-text);
+}
+
+/* 版本页 */
+
+body.theme-light .release-toggle {
+  background: rgba(60, 60, 67, 0.05);
+  border-color: rgba(60, 60, 67, 0.18);
+}
+
+body.theme-light .release-toggle:hover {
+  background: rgba(60, 60, 67, 0.09);
+  border-color: rgba(60, 60, 67, 0.3);
+}
+
+body.theme-light .release-item-list li::before {
+  background: rgba(60, 60, 67, 0.28);
+}
+
+/* 关于页 */
+
+body.theme-light .about-paragraph:first-child {
+  color: rgba(28, 28, 31, 0.8);
+}
+
+body.theme-light .stack-list li {
+  background: rgba(60, 60, 67, 0.05);
 }
 
 /* ---------- motion ---------- */

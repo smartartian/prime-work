@@ -57,14 +57,28 @@ export interface Dictionary {
     categories: {
       label: string;
       all: string;
-      terminal: string;
-      nav: string;
-      ai: string;
+      tool: string;
+      integration: string;
+      model: string;
+      memory: string;
+      security: string;
+      ui: string;
+      automation: string;
+      remote: string;
+      office: string;
+      design: string;
+      vision: string;
+      network: string;
+      client: string;
+      efficiency: string;
+      content: string;
+      other: string;
     };
     sources: {
       all: string;
+      core: string;
       builtin: string;
-      official: string;
+      external: string;
     };
     minAppPrefix: string;
     latest: string;
@@ -196,7 +210,7 @@ export const zh: Dictionary = {
       },
       {
         title: "扩展",
-        desc: "按需启用插件与技能。0.0.8 起支持导入外部插件包，扩展不必等官方。",
+        desc: "按需启用插件与技能。插件支持多菜单、设置页入口与本地开发调试，扩展不必等官方。",
       },
     ],
   },
@@ -209,10 +223,10 @@ export const zh: Dictionary = {
   release: {
     label: "版本",
     title: "更新记录",
-    desc: "当前提供 macOS（Apple Silicon）版本，下载通道即将开放。",
+    desc: "当前提供 macOS（Apple Silicon）与 Windows 10/11 x64 版本，下载通道即将开放。",
     versionLabel: "最新版本",
     platformLabel: "平台",
-    platform: "macOS · Apple Silicon",
+    platform: "macOS · Apple Silicon / Windows x64",
     statusLabel: "下载状态",
     status: "即将开放",
     notesTitle: "历史版本",
@@ -223,7 +237,7 @@ export const zh: Dictionary = {
     label: "插件市场",
     eyebrow: "插件生态全景",
     title: "插件市场",
-    desc: "Prime Work 的日常能力由插件组合而成。这里平铺展示内置与已上架的插件，安装前看清权限。",
+    desc: "Prime Work 的日常能力由插件组合而成。这里按核心、内置与已上架插件平铺展示，安装前看清权限与客户端要求。",
     searchPlaceholder: "搜索插件名称、介绍或权限…",
     searchClear: "清除搜索",
     countPrefix: "共",
@@ -231,14 +245,28 @@ export const zh: Dictionary = {
     categories: {
       label: "插件分类",
       all: "全部",
-      terminal: "终端",
-      nav: "导航",
-      ai: "AI",
+      tool: "工具",
+      integration: "集成",
+      model: "模型",
+      memory: "记忆",
+      security: "安全",
+      ui: "UI 增强",
+      automation: "自动化",
+      remote: "远程",
+      office: "办公",
+      design: "设计",
+      vision: "视觉",
+      network: "网络",
+      client: "客户端",
+      efficiency: "效率",
+      content: "内容",
+      other: "其他",
     },
     sources: {
       all: "全部",
+      core: "核心",
       builtin: "内置",
-      official: "官方",
+      external: "外部",
     },
     minAppPrefix: "需客户端",
     latest: "最新版",
@@ -249,23 +277,23 @@ export const zh: Dictionary = {
     aboutTitle: "关于插件市场",
     about: [
       {
-        term: "内置插件",
-        desc: "随客户端发布，无需安装，例如 AI 助手。",
+        term: "核心插件",
+        desc: "随客户端编译的系统根基，入口由插件注册表生成，不可停用或卸载，例如模型配置。",
       },
       {
-        term: "官方插件",
-        desc: "由官方维护并在插件市场上架，可安装、更新与卸载，例如 SSH 终端、站点导航与页面菜单。",
+        term: "内置插件",
+        desc: "随客户端发布的官方插件，可启停、不可卸载，例如 AI 助手。",
       },
       {
         term: "外部插件",
-        desc: "从市场安装或离线导入的 zip 包，运行在沙箱中，不能声明 desktop 权限。",
+        desc: "从市场安装或离线导入的插件，可启停、可卸载，例如 SSH 终端、站点导航与页面菜单。",
       },
     ],
     aboutNote:
       "卡片上的权限来自插件清单，安装前请确认；版本与客户端要求以客户端内的插件市场为准。",
     tipTitle: "想发布自己的插件？",
     tipDesc:
-      "插件是一个 zip 包，通过 window.pwb 与宿主通信。开发指南覆盖清单、SDK 与本地调试；也可以在客户端「设置 → 插件市场 → 上传插件包」发布。",
+      "插件通过 prime-plugin/plugin.json 声明能力，入口 main.js 由宿主以 Shadow DOM 沙箱挂载。开发指南覆盖清单、SDK 与本地调试；也可以运行 npm run plugins:serve 把本机源码直接导入插件中心。",
     tipPrimary: "插件开发",
     tipSecondary: "清单参考",
   },

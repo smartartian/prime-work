@@ -199,19 +199,21 @@ export function CatalogPage({
               <span className="catalog-side-text">{allLabel}</span>
               <span className="catalog-side-count">{countBy("category", "all")}</span>
             </button>
-            {categories.map((option) => (
-              <button
-                type="button"
-                className={`catalog-side-item${category === option.id ? " is-active" : ""}`}
-                aria-pressed={category === option.id}
-                key={option.id}
-                onClick={() => setCategory(option.id)}
-              >
-                <span className="catalog-side-dot" />
-                <span className="catalog-side-text">{option.label}</span>
-                <span className="catalog-side-count">{countBy("category", option.id)}</span>
-              </button>
-            ))}
+            {categories
+              .filter((option) => countBy("category", option.id) > 0)
+              .map((option) => (
+                <button
+                  type="button"
+                  className={`catalog-side-item${category === option.id ? " is-active" : ""}`}
+                  aria-pressed={category === option.id}
+                  key={option.id}
+                  onClick={() => setCategory(option.id)}
+                >
+                  <span className="catalog-side-dot" />
+                  <span className="catalog-side-text">{option.label}</span>
+                  <span className="catalog-side-count">{countBy("category", option.id)}</span>
+                </button>
+              ))}
           </div>
         </aside>
 

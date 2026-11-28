@@ -4,7 +4,7 @@ The AI assistant lives in a right-side panel and supports Chat and Agent modes.
 
 ## Models
 
-Open **Settings → Models**, add a provider and API key, save, and test connectivity. Routing takes effect immediately without a restart.
+Open **Settings → Model Configuration**, add a provider and API key, save, and test connectivity. Routing takes effect immediately without a restart.
 
 Switch between models, run batch connectivity tests, and check DeepSeek balance.
 
@@ -20,7 +20,7 @@ Agent shows a command summary and asks for confirmation before running terminal 
 
 ## Skills
 
-Type `/` to select a skill, or let the model choose. The Skill Center can enable or disable skills and shows dependency conflicts.
+Type `/` to select a skill, or let the model choose. The Skill Center can enable or disable skills and shows dependency conflicts. Plugins can also declare commands and skills in their manifest; these appear in the slash panel once enabled.
 
 ## Sessions
 

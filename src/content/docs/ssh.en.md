@@ -1,13 +1,18 @@
 # SSH terminal
 
-SSH terminal (`ssh-terminal`) is a published Prime Work plugin. It bridges full SSH capabilities through the host `pwb.ssh.*` API. The entry appears as "SSH terminal" or "SSH terminal (ext)".
+SSH Terminal (`ssh-terminal`) is a published Prime Work plugin that bridges full SSH capabilities through the host `pwb.ssh.*` API. It registers two menus: Terminal and Host Config.
 
 ## Install and enable
 
 - Install from **Settings → Plugin Market**, or import a zip in Plugin Center.
-- Requires client 0.0.17+; check the market for the exact requirement.
-- Enable it in **Settings → Plugin Center**.
+- Current version 0.0.5, requires client 0.0.17+; check the market for the exact requirement.
+- Enable it in **Settings → Plugin Center**; both menus are created automatically.
 - Permissions: `ssh`, `storage`.
+
+## Menus
+
+- **SSH Terminal**: in the "Terminal & Operations" group of the main navigation.
+- **Host Config**: under **Settings → Plugin Settings**, sharing the same host data as the terminal.
 
 ## Hosts
 
@@ -17,7 +22,7 @@ When adding a host, provide the address, port, username and authentication:
 - **Private key**: choose a local key file
 - **ssh-agent**: use keys from the system agent
 
-Hosts are sorted by recent connections; the plugin page and settings share the same host data.
+Hosts are sorted by recent connections; the terminal and **Settings → Plugin Settings → Host Config** share the same host data.
 
 ## Fingerprints
 

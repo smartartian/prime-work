@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { Footer } from "./components/Footer";
 import { useI18n } from "./i18n";
@@ -152,6 +152,15 @@ function Header() {
 function AppShell() {
   const { pathname } = useLocation();
   const isDocs = pathname === "/docs" || pathname.startsWith("/docs/");
+  // 插件市场、技能市场、版本、关于使用浅色主题
+  const isLight = ["/market", "/skills", "/release", "/about"].includes(
+    pathname.replace(/\/+$/, "") || "/",
+  );
+
+  useLayoutEffect(() => {
+    document.body.classList.toggle("theme-light", isLight);
+    return () => document.body.classList.remove("theme-light");
+  }, [isLight]);
 
   return (
     <>

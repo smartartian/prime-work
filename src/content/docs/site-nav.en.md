@@ -6,8 +6,8 @@ Site Navigation (`site-nav`) groups frequently used sites and opens a card in th
 
 - **Market**: Settings → Plugin Market → Site Navigation → Install.
 - **Offline import**: Settings → Plugin Center → Import plugin package, then choose the zip.
-- Check the market for the required client version; the current runtime needs a recent client.
-- After the first install, open Plugin Center and click "Configure menu" to choose a category and create the left navigation entry.
+- Current version 0.0.5, requires client 0.0.21+; check the market for the exact requirement.
+- The manifest declares a navigation menu, so the left entry appears automatically once enabled.
 
 ## Usage
 
@@ -30,13 +30,13 @@ Site Navigation (`site-nav`) groups frequently used sites and opens a card in th
 
 - Market updates or a same-name zip overwrite the install and keep site data.
 - Disabling hides the entry and keeps data.
-- Uninstalling removes the plugin directory; settings and private storage are kept by default.
+- Uninstalling removes the plugin directory; settings and private storage stay locally by default and can be cleared in Settings → Privacy & Data → Local data.
 
 ## FAQ
 
 **No entry in the left navigation after install?**
 
-A first mount needs menu configuration: Plugin Center → Site Navigation → Configure menu, choose a category and create an entry.
+Confirm the plugin is enabled in Plugin Center. The latest version declares its navigation menu and creates the entry automatically; only older packages without menu declarations need manual configuration.
 
 **`main.js` is missing?**
 

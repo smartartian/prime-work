@@ -18,7 +18,7 @@ Installed plugins, SSH hosts and local settings work offline; sign-in, cloud syn
 
 ## Are plugins safe?
 
-External plugins run in a sandboxed iframe and can only use declared permissions. `pwb.fetch` is restricted by an origin allowlist, and `desktop` is not available to external plugins.
+External plugins are loaded and mounted by the host with an optional Shadow DOM sandbox and can only use declared permissions. `pwb.network.fetch` is restricted by an origin allowlist, and `desktop` is not available to external plugins.
 
 ## Does Agent run commands automatically?
 
